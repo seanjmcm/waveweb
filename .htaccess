@@ -1,0 +1,9 @@
+
+RewriteOptions inherit
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^deck$ "https\:\/\/app\-na1\.hubspotdocuments\.com\/documents\/216124\/view\/1187893153\?accessId\=8ad530" [R=302,L]
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^value$ "https\:\/\/hubs\.ly\/Q03xsDF00" [R=302,L]

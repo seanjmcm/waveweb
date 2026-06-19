@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		  <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		      <title>Your Medical Startup - Transforming Healthcare</title>
+		        <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		  <header>
+			      <h1>Your Medical Startup</h1>
+			          <p>Empowering better health through innovation</p>
+				    </header>
+
+				      <nav>
+					          <ul>
+							        <li><a href="#">Home</a></li>
+								      <li><a href="#">About Us</a></li>
+								            <li><a href="#">Our Services</a></li>
+									          <li><a href="#">News & Events</a></li>
+										        <li><a href="#">Contact Us</a></li>
+											    </ul>
+											      </nav>
+
+											        <main>
+													    <section class="hero">
+														          <h2>Revolutionizing healthcare with cutting-edge solutions</h2>
+															        <p>We are a passionate team of medical professionals and technologists dedicated to developing innovative solutions that improve patient care and health outcomes.</p>
+																      <a href="#" class="button">Learn More</a>
+																          </section>
+
+																	      <section class="services">
+																		            <h3>Our Services</h3>
+																			          <p>We offer a wide range of services to meet the needs of patients, healthcare providers, and institutions.</p>
+																				        <div class="service-card">
+																						        <h4>Telemedicine</h4>
+																							        <p>Convenient and accessible healthcare consultations from the comfort of your home.</p>
+																								      </div>
+																								            <div class="service-card">
+																										            <h4>Remote Patient Monitoring</h4>
+																											            <p>Proactive health management through continuous monitoring of vital signs and health data.</p>
+																												          </div>
+																													        <div class="service-card">
+																															        <h4>AI-powered Diagnostics</h4>
+																																        <p>Enhanced diagnostic accuracy and efficiency through advanced artificial intelligence algorithms.</p>
+																																	      </div>
+																																	          </section>
+
+																																		      <section class="testimonials">
+																																			            <h3>What People Are Saying</h3>
+																																				          <p>"Your Medical Startup has transformed the way I manage my health. Telemedicine consultations are incredibly convenient, and remote monitoring gives me peace of mind."</p>
+																																					        <p>- Satisfied Patient</p>
+																																						    </section>
+																																						      </main>
+
+																																						        <footer>
+																																								    <p>&copy; 2024 Your Medical Startup. All rights reserved.</p>
+																																								      </footer>
+	</body>
+</html>
