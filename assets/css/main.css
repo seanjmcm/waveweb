@@ -1979,3 +1979,13 @@ a.contact-link {
         width: 33.33%;
     }
 }
+
+/* Partner Grid Hover Effects */
+.partner-grid > div > div {
+  transition: all 0.3s ease;
+}
+.partner-grid > div > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  border-color: var(--accent-color) !important;
+}
