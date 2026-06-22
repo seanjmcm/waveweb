@@ -1,103 +1,123 @@
 // assets/js/custom-map.js
-// Initialize a Google Map with a custom dark theme.
-// This script is loaded after the Google Maps API script.
+// Initializes a Google Map styled to match the WaveScopeAI site palette:
+//   Background: #0f172a (deep navy)
+//   Accent:     #38bdf8 (vibrant sky-blue)
+//   Surface:    #1e293b (slate)
+//   Roads:      #1e3a5f (deep blue-grey)
+//   Water:      #0284c7 (brand deep-blue)
+//   Labels:     #94a3b8 (muted slate)
+
 function initMap() {
-  const mapOptions = {
-    center: { lat: 53.278235, lng: -6.2163456 }, // Coordinates of the address
+  const location = { lat: 53.278235, lng: -6.2163456 };
+
+  const styledMapType = [
+    // Base geometry
+    { elementType: "geometry",              stylers: [{ color: "#0f172a" }] },
+    { elementType: "labels.text.stroke",   stylers: [{ color: "#0f172a" }] },
+    { elementType: "labels.text.fill",     stylers: [{ color: "#64748b" }] },
+
+    // Administrative
+    { featureType: "administrative",
+      elementType: "geometry",             stylers: [{ color: "#1e293b" }] },
+    { featureType: "administrative.locality",
+      elementType: "labels.text.fill",     stylers: [{ color: "#94a3b8" }] },
+    { featureType: "administrative.country",
+      elementType: "labels.text.fill",     stylers: [{ color: "#64748b" }] },
+    { featureType: "administrative.land_parcel",
+                                           stylers: [{ visibility: "off" }] },
+
+    // POI
+    { featureType: "poi",
+      elementType: "labels.text.fill",     stylers: [{ color: "#64748b" }] },
+    { featureType: "poi",
+      elementType: "geometry",             stylers: [{ color: "#162032" }] },
+    { featureType: "poi.park",
+      elementType: "geometry",             stylers: [{ color: "#0d2137" }] },
+    { featureType: "poi.park",
+      elementType: "labels.text.fill",     stylers: [{ color: "#476783" }] },
+    { featureType: "poi.park",
+      elementType: "labels.text.stroke",   stylers: [{ color: "#0d2137" }] },
+    { featureType: "poi.business",
+                                           stylers: [{ visibility: "off" }] },
+
+    // Roads
+    { featureType: "road",
+      elementType: "geometry.fill",        stylers: [{ color: "#1e3a5f" }] },
+    { featureType: "road",
+      elementType: "geometry.stroke",      stylers: [{ color: "#0f172a" }] },
+    { featureType: "road",
+      elementType: "labels.text.fill",     stylers: [{ color: "#94a3b8" }] },
+    { featureType: "road.arterial",
+      elementType: "geometry",             stylers: [{ color: "#1e3a5f" }] },
+    { featureType: "road.arterial",
+      elementType: "geometry.stroke",      stylers: [{ color: "#0f172a" }] },
+    { featureType: "road.highway",
+      elementType: "geometry",             stylers: [{ color: "#1d4ed8" }] },
+    { featureType: "road.highway",
+      elementType: "geometry.stroke",      stylers: [{ color: "#0284c7" }] },
+    { featureType: "road.highway",
+      elementType: "labels.text.fill",     stylers: [{ color: "#38bdf8" }] },
+    { featureType: "road.highway.controlled_access",
+      elementType: "geometry",             stylers: [{ color: "#2563eb" }] },
+    { featureType: "road.highway.controlled_access",
+      elementType: "geometry.stroke",      stylers: [{ color: "#0284c7" }] },
+    { featureType: "road.local",
+      elementType: "labels.text.fill",     stylers: [{ color: "#475569" }] },
+
+    // Transit
+    { featureType: "transit",
+      elementType: "geometry",             stylers: [{ color: "#1e293b" }] },
+    { featureType: "transit.station",
+      elementType: "labels.text.fill",     stylers: [{ color: "#38bdf8" }] },
+
+    // Water — brand blue
+    { featureType: "water",
+      elementType: "geometry",             stylers: [{ color: "#0c2a45" }] },
+    { featureType: "water",
+      elementType: "labels.text.fill",     stylers: [{ color: "#38bdf8" }] },
+    { featureType: "water",
+      elementType: "labels.text.stroke",   stylers: [{ color: "#0c2a45" }] }
+  ];
+
+  const map = new google.maps.Map(document.getElementById("custom-map"), {
+    center: location,
     zoom: 15,
-    // A pleasant dark‑blue theme (derived from Google Maps styling examples)
-    styles: [
-      { elementType: "geometry", stylers: [{ color: "#212121" }] },
-      { elementType: "labels.text.stroke", stylers: [{ color: "#212121" }] },
-      { elementType: "labels.text.fill", stylers: [{ color: "#757575" }] },
-      {
-        featureType: "administrative",
-        elementType: "geometry",
-        stylers: [{ color: "#757575" }]
-      },
-      {
-        featureType: "administrative.country",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#9e9e9e" }]
-      },
-      {
-        featureType: "administrative.land_parcel",
-        stylers: [{ visibility: "off" }]
-      },
-      {
-        featureType: "administrative.locality",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#bdbdbd" }]
-      },
-      {
-        featureType: "poi",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#757575" }]
-      },
-      {
-        featureType: "poi.park",
-        elementType: "geometry",
-        stylers: [{ color: "#181818" }]
-      },
-      {
-        featureType: "poi.park",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#616161" }]
-      },
-      {
-        featureType: "poi.park",
-        elementType: "labels.text.stroke",
-        stylers: [{ color: "#1b1b1b" }]
-      },
-      {
-        featureType: "road",
-        elementType: "geometry.fill",
-        stylers: [{ color: "#2c2c2c" }]
-      },
-      {
-        featureType: "road",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#8a8a8a" }]
-      },
-      {
-        featureType: "road.arterial",
-        elementType: "geometry",
-        stylers: [{ color: "#373737" }]
-      },
-      {
-        featureType: "road.highway",
-        elementType: "geometry",
-        stylers: [{ color: "#3c3c3c" }]
-      },
-      {
-        featureType: "road.highway.controlled_access",
-        elementType: "geometry",
-        stylers: [{ color: "#4e4e4e" }]
-      },
-      {
-        featureType: "road.local",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#616161" }]
-      },
-      {
-        featureType: "transit",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#757575" }]
-      },
-      {
-        featureType: "water",
-        elementType: "geometry",
-        stylers: [{ color: "#000000" }]
-      },
-      {
-        featureType: "water",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#3d3d3d" }]
-      }
-    ]
-  };
-  const map = new google.maps.Map(document.getElementById("custom-map"), mapOptions);
+    styles: styledMapType,
+    disableDefaultUI: true,
+    zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_TOP
+    },
+    gestureHandling: "cooperative"
+  });
+
+  // Custom marker using the brand accent colour
+  const marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    title: "Wavescope Ltd",
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 10,
+      fillColor: "#38bdf8",
+      fillOpacity: 1,
+      strokeColor: "#0f172a",
+      strokeWeight: 2
+    }
+  });
+
+  // Info window
+  const infoWindow = new google.maps.InfoWindow({
+    content: `
+      <div style="background:#1e293b;color:#f8fafc;padding:10px 14px;border-radius:8px;font-family:Inter,sans-serif;font-size:13px;min-width:160px;">
+        <strong style="color:#38bdf8;display:block;margin-bottom:4px;">Wavescope Ltd</strong>
+        51 Bracken Road<br>Sandyford, Dublin 18
+      </div>`
+  });
+
+  marker.addListener("click", () => {
+    infoWindow.open(map, marker);
+  });
 }
 
-// Export initMap to the global scope for the callback defined in the API script tag.
 window.initMap = initMap;
