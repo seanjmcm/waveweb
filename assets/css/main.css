@@ -21,40 +21,40 @@
 
 /* Global Colors - Modern Premium Aesthetic */
 :root { 
-  --background-color: #0f172a; /* Deep dark background */
-  --default-color: #cbd5e1; /* Subtle soft gray for text */
-  --heading-color: #f8fafc; /* Crisp white for headings */
+  --background-color: #f8fafc; /* Crisp, almost pure white for background */
+  --default-color: #253147; /* Noticeably lighter, rich dark blue for text */
+  --heading-color: #1e293b; /* Dark blue for headings */
   --accent-color: #38bdf8; /* Vibrant light blue */
   --accent-color-dark: #0284c7; /* Deep blue */
-  --surface-color: #1e293b; /* Slightly lighter surface */
+  --surface-color: #e2e8f0; /* Lighter surface for distinct contrast */
   --contrast-color: #ffffff; /* High contrast white */
-  --glass-bg: rgba(30, 41, 59, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 /* Nav Menu Colors */
 :root {
-  --nav-color: #e2e8f0; 
+  --nav-color: #f8fafc; 
   --nav-hover-color: #38bdf8; 
-  --nav-mobile-background-color: #1e293b; 
-  --nav-dropdown-background-color: #1e293b; 
-  --nav-dropdown-color: #e2e8f0; 
-  --nav-dropdown-hover-color: #0f172a; 
+  --nav-mobile-background-color: #334155; 
+  --nav-dropdown-background-color: #334155; 
+  --nav-dropdown-color: #f8fafc; 
+  --nav-dropdown-hover-color: #1e293b; 
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #1e293b; /* A lighter shade for alternate sections */
-  --surface-color: #334155;
+  --background-color: #364663; /* Noticeably lighter surface color */
+  --surface-color: #4a5d80;
 }
 
 .dark-background {
-  --background-color: #020617; /* Very dark shade */
-  --default-color: #cbd5e1;
+  --background-color: #1e293b; /* Slightly darker than main, but still lighter than old #0f172a */
+  --default-color: #f8fafc;
   --heading-color: #ffffff;
-  --surface-color: #0f172a;
+  --surface-color: #253147;
   --contrast-color: #ffffff;
 }
 
@@ -1998,4 +1998,13 @@ a.contact-link {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
   border-color: var(--accent-color) !important;
+}
+
+/* Custom Darker Color for Team and Advisors Section */
+.team .team-member .text-white {
+  color: var(--heading-color) !important;
+}
+
+.team .team-member .text-light {
+  color: var(--default-color) !important;
 }
