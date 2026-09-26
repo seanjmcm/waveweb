@@ -48,6 +48,8 @@
 .light-background {
   --background-color: #364663; /* Noticeably lighter surface color */
   --surface-color: #4a5d80;
+  --default-color: #f8fafc;
+  --heading-color: #ffffff;
 }
 
 .dark-background {
@@ -1993,6 +1995,7 @@ a.contact-link {
 /* Partner Grid Hover Effects */
 .partner-grid > div > div {
   transition: all 0.3s ease;
+  color: #253147; /* Ensure text is visible on white background */
 }
 .partner-grid > div > div:hover {
   transform: translateY(-5px);
